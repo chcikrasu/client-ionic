@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Chci krásu
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Co byste si přáli?</ion-label>
+    <ion-select [(ngModel)]="serviceType" interface="popover">
+      <ion-option value="0">Manikura</ion-option>
+      <ion-option value="1">Pedikura</ion-option>
+      <ion-option value="2">Kadeřnictví</ion-option>
+      <ion-option value="3">Masáž</ion-option>
+      <ion-option value="4">Epilace</ion-option>
+      <ion-option value="5">Kosmetika</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Kdy</ion-label>
+    <ion-datetime displayFormat="DD/MMM" [(ngModel)]="myDate" monthNames="Leden,Únor,Březen,Duben,Květen,Červen,Červenec,Srpen,Září,Říjen,Listopad,Prosinec"
+     monthShortNames="leden,únor,březen,duben,květen,červen,červenec,srpen,září,říjen,listopad,prosinec"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>V kolik</ion-label>
+    <ion-datetime displayFormat="HH:mm" [(ngModel)]="myDate" minuteValues="0,30"></ion-datetime>
+  </ion-item>
+  <button ion-button  color="light" *ngIf="serviceType < 0">Hledej</button>
+  <button ion-button color="secondary" (click)="searchClickHandler()" *ngIf="serviceType >= 0">Hledej</button>
+</ion-content>
