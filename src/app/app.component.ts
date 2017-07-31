@@ -12,7 +12,7 @@ import { ServiceProviderProfilePage } from "../pages/service-provider-profile/se
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = HomePage;//OAuthProvidersListPage;
+  rootPage:any = OAuthProvidersListPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
