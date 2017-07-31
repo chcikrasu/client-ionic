@@ -1,8 +1,12 @@
 export class ServiceProviderAvailability
 {
+    public id: string;
+    
     public serviceProviderId: string;
 
-    public date: Date;
+    public from: Date;
 
-    public serviceTypeId: string;
+    public to: Date;
+
+    public serviceTypeId: number;
 }

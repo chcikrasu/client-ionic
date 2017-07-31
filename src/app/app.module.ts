@@ -13,6 +13,7 @@ import { OffersListPage } from "../pages/offers-list/offers-list";
 import { OffersMapPage } from "../pages/offers-map/offers-map";
 import { UserProfilePage } from "../pages/user-profile/user-profile";
 import { ServiceProviderAuthPage } from "../pages/oauth/service-provider-auth/service-provider-auth";
+import { ServiceProviderTimeAvailabilityModalPage } from "../pages/service-provider-time-availability-modal/service-provider-time-availability-modal";
 import { ServiceProviderProfilePage } from "../pages/service-provider-profile/service-provider-profile";
 import { OAuthModule } from '../pages/oauth/oauth.module';
 import { HttpModule } from '@angular/http';
@@ -32,6 +33,7 @@ import { Config } from "../config";
     OffersMapPage,
     ServiceProviderAuthPage,
     ServiceProviderProfilePage,
+    ServiceProviderTimeAvailabilityModalPage,
     UserProfilePage
   ],
   imports: [
@@ -50,6 +52,7 @@ import { Config } from "../config";
     OffersMapPage,
     ServiceProviderAuthPage,
     ServiceProviderProfilePage,
+    ServiceProviderTimeAvailabilityModalPage,
     UserProfilePage
   ],
   providers: [
@@ -57,7 +60,7 @@ import { Config } from "../config";
     SplashScreen,
     Config,
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }

@@ -6,16 +6,16 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Váš profil</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Váš profil</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content class="home">
     <ion-card>
-        <img src="build/img/profile.jpg"/>
+        <img src="build/img/profile.jpg" />
         <ion-card-content>
             <ion-card-title>
                 Muhammad Kamran
@@ -57,7 +57,18 @@
         </ion-list>
     </ion-card>
     <h4 padding>Volné termíny</h4>
-    <button ion-button round padding>+</button>
-    <ion-card>      
+    <button ion-button round padding (click)="addAvailabilityCard()">Přidat termín</button>
+    <ion-card *ngFor="let card of availabilityCards">
+        <ion-icon name="close-circle"></ion-icon>
+        <ion-item>
+            <ion-datetime displayFormat="DD/MM" [(ngModel)]="card.date"></ion-datetime>
+        </ion-item>
+
+        <ion-card-content>
+            <button ion-button round padding (click)="openModal()">Přidat čas</button>
+            <ion-datetime *ngIf="isTimeSetting" displayFormat="HH:mm"  [(ngModel)]="myDate" minuteValues="0,30"></ion-datetime>
+            <button ion-button *ngFor="let card of availabilities" (click)="openModal(card.id)">{{card.from + "-" + card.to + "\n" + "epilace"}}</button>
+        </ion-card-content>
+
     </ion-card>
 </ion-content>

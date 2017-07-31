@@ -9,24 +9,23 @@
 <ion-content padding>
   <ion-item>
     <ion-label>Co byste si přáli?</ion-label>
-    <ion-select [(ngModel)]="serviceType" interface="popover">
-      <ion-option value="0">Manikura</ion-option>
-      <ion-option value="1">Pedikura</ion-option>
-      <ion-option value="2">Kadeřnictví</ion-option>
-      <ion-option value="3">Masáž</ion-option>
-      <ion-option value="4">Epilace</ion-option>
-      <ion-option value="5">Kosmetika</ion-option>
+    <ion-select #selectParentType [(ngModel)]="serviceParentType" (ionChange)="selectParent($event, serviceParentType)" interface="popover">
+      <ion-option *ngFor="let type of parentServiceTypes" [value] = "type.id">{{type.name}}</ion-option>      
     </ion-select>
+    <ion-select #selectServiceType [(ngModel)]="serviceType" interface="popover" multiple="true">
+      <ion-option *ngFor="let type of childServiceTypes" [value] = "type.id">{{type.name}}</ion-option>      
+    </ion-select>
+  
   </ion-item>
   <ion-item>
     <ion-label>Kdy</ion-label>
     <ion-datetime displayFormat="DD/MMM" [(ngModel)]="myDate" monthNames="Leden,Únor,Březen,Duben,Květen,Červen,Červenec,Srpen,Září,Říjen,Listopad,Prosinec"
-     monthShortNames="leden,únor,březen,duben,květen,červen,červenec,srpen,září,říjen,listopad,prosinec"></ion-datetime>
+     monthShortNames="leden,únor,březen,duben,květen,červen,červenec,srpen,září,říjen,listopad,prosinec" cancelText="Zrušit" doneText="Ok"></ion-datetime>
   </ion-item>
   <ion-item>
     <ion-label>V kolik</ion-label>
-    <ion-datetime displayFormat="HH:mm" [(ngModel)]="myDate" minuteValues="0,30"></ion-datetime>
+    <ion-datetime displayFormat="HH:mm" [(ngModel)]="myDate" minuteValues="0,30" cancelText="Zrušit" doneText="Ok"></ion-datetime>
   </ion-item>
   <button ion-button  color="light" *ngIf="serviceType < 0">Hledej</button>
-  <button ion-button color="secondary" (click)="searchClickHandler()" *ngIf="serviceType >= 0">Hledej</button>
+  <button ion-button color="secondary" (click)="searchClickHandler()" >Hledej</button>
 </ion-content>

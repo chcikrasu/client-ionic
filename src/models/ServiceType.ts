@@ -5,4 +5,6 @@ export class ServiceType
     public name: string;
 
     public parentServiceTypeId: string;
+
+    public defaultDuration: number; // in minutes
 }

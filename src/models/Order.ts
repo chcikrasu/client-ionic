@@ -7,4 +7,5 @@ export class Order
     public userId: string;
 
     public status: string;
+    
 }

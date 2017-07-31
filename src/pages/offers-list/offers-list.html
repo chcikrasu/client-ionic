@@ -15,7 +15,6 @@
   <ion-list>
     <ion-item *ngFor="let offer of offers">
       <ion-card (click)="pickOfferItem(offer.salonTitle)" style="cursor: pointer;">
-        <img style="height: 20px;width: 20%;" src="assets/img/Koala.jpg" />
         <ion-card-content>
           <ion-card-title>
             {{offer.salonTitle}}
@@ -24,6 +23,7 @@
             {{offer.address}}
           </p>
           Cena od {{offer.serviceMinPrice}} Kč
+          <br/>
           <button ion-button color="secondary">Objednat se</button>
         </ion-card-content>
       </ion-card>
